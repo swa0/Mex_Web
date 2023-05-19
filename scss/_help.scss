@@ -1,0 +1,253 @@
+.helpPage {
+    width: 100%;
+    height: auto;
+    min-height: 565px;
+    padding: 180px 0 42px;
+
+    .center {
+        width: 1400px;
+        height: auto;
+        display: flex;
+        justify-content: space-between;
+        padding: 25px 0 40px;
+        margin: 0 auto;
+        
+        .nav {
+            width: 325px;
+            height: auto;
+            background: $mainBG_1;
+            border-radius: 16px;
+            padding: 25px 10px;
+            margin-right: 15px;
+            flex-shrink: 0;
+
+            &>li {
+                width: 100%;
+                padding-left: 60px;
+
+                &.title {
+                    height: 50px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    position: relative;
+                    cursor: pointer;
+
+                    &.active {
+
+                        .arrow_ic {
+                            transform: rotate(90deg);
+                        }
+                    }
+
+                    i:not(.arrow_ic) {
+                        width: 20px;
+                        height: 20px;
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        left: 18px;
+                    }
+
+                    p {
+                        color: $mainFont_1;
+                        font-size: 18px;
+                        font-weight: bold;
+                    }
+
+                    .arrow_ic {
+                        width: 9px;
+                        height: 16px;
+                        margin-right: 20px;
+                    }
+                }
+
+                &.box {
+                    display: none;
+                    width: 100%;
+                    height: auto;
+                    padding: 0;
+
+                    &.display {
+                        display: block;
+                    }
+
+                    li {
+                        width: 100%;
+                        height: 42px;
+                        @include innerLeftNav;
+                        font-size: 16px;
+                        margin-bottom: 5px;
+
+                        &:last-child {
+                            margin: 0;
+                        }
+                    }
+                }
+                
+            }
+        }
+        
+        .helpWrap {
+            width: 100%;
+            height: auto;
+            min-height: 500px;
+            background: $mainBG_1;
+            border-radius: 16px;
+            padding: 48px;
+
+            div {
+                display: none;
+                width: 100%;
+                height: auto;
+
+                &.display {
+                    display: block;
+                }
+
+                h2 {
+                    color: $subFont_2;
+                    font-size: 16px;
+                    font-weight: bold;
+                    margin: 20px 0;
+
+                    &:first-child {
+                        font-size: 22px;
+                        margin-top: 0;
+                    }
+                }
+                
+                h3 {
+                    color: $subFont_3;
+                    font-size: 16px;
+                    font-weight: bold;
+                    margin: 10px 0;
+                }
+
+                p {
+                    color: $mainFont_1;
+                    font-size: 16px;
+                    font-weight: bold;
+                    line-height: 24px;
+                    margin-bottom: 10px;
+
+                    &.remind {
+                        color: $subFont_1;
+                    }
+
+                    a {
+                        color: $remind_1;
+                    }
+                }
+
+                button {
+                    width: 260px;
+                    height: 42px;
+                    @include mainBtn;
+                }
+
+                .img {
+                    display: block;
+                    margin: 0 auto;
+
+                    &.helpImg_1 {
+                        width: 800px;
+                        height: 400px;
+                    }
+
+                    &.helpImg_2 {
+                        width: 950px;
+                        height: 773px;
+                    }
+
+                    &.helpImg_3 {
+                        width: 912px;
+                        height: 663px;
+                    }
+                }
+
+                .uploadBox {
+                    width: 100%;
+                    height: auto;
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 60px 0;
+
+                    .box {
+                        display: block;
+                        width: 48%;
+                        height: auto;
+
+                        &.full {
+                            width: 100%;
+
+                            .innerBox {
+                                padding: 60px 0;
+                            }
+                        }
+
+                        .smallTitle {
+                            color: $subFont_2;
+                            font-size: 16px;
+                            font-weight: bold;
+                            margin-bottom: 10px;
+                        }
+
+                        .innerBox {
+                            width: 100%;
+                            height: auto;
+                            background: $subBG_1;
+                            border-radius: 5px;
+                            border: dashed 3px $mainBorder_1;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            padding: 30px 0;
+
+                            i {
+                                width: 52px;
+                                height: 49px;
+                                margin-bottom: 10px;
+                            }
+
+                            button {
+                                margin-bottom: 10px;
+                            }
+
+                            .remind {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+
+                .btnBox {
+                    width: 100%;
+                    height: auto;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-bottom: 60px;
+
+                    &.noMar {
+                        margin: 0;
+                    }
+
+                    button {
+
+                        &:last-child {
+                            @include secondBtn;
+                            margin-top: 20px;
+                        }
+                    }
+                }
+
+                hr {
+                    border-color: $mainBorder_1;
+                    margin-bottom: 60px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,430 @@
+header {
+    width: 100%;
+    height: auto;
+    background: $header_BG;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    &.ag {
+
+        button {
+            width: 15%;
+            @include agentBtn;
+        }
+
+        .gameNav {
+            width: 100%;
+            height: 15px;
+        }
+    }
+
+    &.scroll {
+        background: $header_scrollBG;
+    }
+    &.linear {
+        background: $header_hoverBG;
+    }
+
+    //上部
+    .top {
+        width: 1400px;
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0px auto;
+
+        //logo
+        .logo {
+            width: 195px;
+            height: 67px;
+            object-fit: contain;
+            cursor: pointer;
+        }
+
+        //右
+        .user {
+            display: none;
+            width: auto;
+            height: 100%;
+
+            &.display {
+                display: flex;
+            }
+
+            li:not(.platform) {
+                width: auto;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                position: relative;
+
+                //未登入選單
+                .loginForm {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+
+                    div {
+                        width: 230px;
+                        height: 36px;
+                        margin-right: 15px;
+
+                        input {
+                            width: 100%;
+                            height: 100%;
+                            @include headerInput;
+                        }
+                    }
+
+                    button {
+                        width: 130px;
+                        height: 50px;
+                        
+                        &.loginBtn {
+                            @include headerBtn_1;
+                        }
+
+                        &.signupBtn {
+                            @include headerBtn_2;
+                            margin-left: 10px;
+                        }
+                    }
+
+                    .forget {
+                        color: $mainFont_1;
+                        font-size: 14px;
+                        font-weight: bold;
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+                        margin-left: 20px;
+
+                        i {
+                            width: 18px;
+                            height: 18px;
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+
+            //已登入
+            &.alLogin {
+
+                li:not(.platform) {
+                    margin-right: 15px;
+
+                    &:last-child {
+                        margin: 0;
+                    }
+
+                    a {
+                        color: $mainFont_1;
+                        font-size: 12px;
+                        font-weight: bold;
+                        transition: all 0.3s;
+
+                        &:hover,&:active,&.active {
+                            color: $header_Hover;
+                        }
+
+                        .remind {
+                            min-width: 18px;
+                            min-height: 18px;
+                            @include headerMailRemind;
+                        }
+                    }
+
+                    .logoutBtn {
+                        width: 130px;
+                        height: 50px;
+                        @include headerBtn_1;
+                    }
+
+                    //等級
+                    &.lv {
+                        color: $mainFont_1;
+                        font-size: 14px;
+                        font-weight: bold;
+
+                        span {
+                            color: $subFont_1;
+                            margin-left: 15px;
+                        }
+                    }
+
+                    //各平台金額
+                    &.moneyTotal {
+
+                        .total {
+                            width: auto;
+                            height: auto;
+                            @include headerMoney;
+                        }
+
+                        .transferInfo {
+                            width: 290px;
+                            height: auto;
+                            max-height: 516px;
+                            @include headerMoneyList;
+                            position: absolute;
+                            left: 0;
+                            top: 60px;
+                            z-index: 20;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //跑馬燈
+    .marqueeBox {
+        width: 100%;
+        max-width: 1400px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 5px;
+        margin: 0 auto;
+        position: relative;
+
+        &:before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            border: 2px solid $mainBorder_3;
+            border-radius: 50px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            opacity: 0.3;
+        }
+
+        .marqueeTitle {
+            width: auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: $marquee_TitleBG;
+            color: $mainFont_1;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 50px;
+            flex-shrink: 0;
+            padding: 0 15px;
+        }
+
+        .marquee {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+
+            p {
+                font-size: 14px;
+                font-weight: bold;
+                color: $marquee_Word;
+                display: inline-block;
+                animation: marquee 10s linear infinite;
+                padding-left: 100%;
+                white-space: nowrap;
+            }
+
+            @keyframes marquee {
+                0% {
+                    transform: translate(0%);
+                }
+
+                100% {
+                    transform: translate(-100%);
+                }
+            }
+        }
+    }
+
+    //選單
+    .gameNav {
+        width: 100%;
+        height: 90px;
+
+        .center {
+            width: 1400px;
+            height: 100%;
+            margin: 0 auto;
+
+            ul {
+                width: auto;
+                height: 100%;
+                display: flex;
+                justify-content: space-between;
+
+                li {
+                    width: auto;
+                    height: 100%;
+
+                    a {
+                        width: auto;
+                        height: 100%;
+                        color: $mainFont_1;
+                        font-size: 18px;
+                        font-weight: bold;
+                        letter-spacing: 1px;
+                        display: flex;
+                        align-items: center;
+                        transition: 0.3s all;
+                        opacity: 0.6;
+                        padding: 0 25px;
+
+                        &:hover,&:active,&.active {
+                            text-shadow: 2px 3px 5px $mainShadow_1,0px 5px 10px $mainShadow_1;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //下拉式選單
+    .topGameList {
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        position: absolute;
+        left: 0px;
+        top: 220px;
+        transition: 0.3s all;
+
+        &.display {
+            height: 240px;
+        }
+
+        .listWrap {
+            width: 100%;
+            height: 100%;
+            background: $topGameList_BG;
+
+            .center {
+                width: 1400px;
+                height: 100%;
+                margin: 0 auto;
+
+                ul {
+                    width: 100%;
+                    height: 100%;
+                    display: none;
+                    align-items: center;
+                    justify-content: center;
+
+                    &.display {
+                        display: flex;
+                    }
+
+                    &.hasArrow {
+                        justify-content: space-between;
+                    }
+
+                    i {
+                        width: 36px;
+                        height: 120px;
+                        @include underList_arrow;
+                        
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            width: 19px;
+                            height: 32px;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%,-50%);
+                        }
+
+                        &.prev {
+                            transform: scaleX(-1);
+                        }
+                    }
+
+                    ol {
+                        width: 1248px;
+                        height: 100%;
+                        overflow: hidden;
+
+                        &>div {
+                            width: auto;
+                            height: 100%;
+                            display: flex;
+                            transition: 0.6s ease;
+
+                            li {
+                                width: auto;
+                                height: auto;
+                                display: flex;
+                                justify-content: center;
+                                flex-direction: column;
+                                position: relative;
+        
+                                div {
+                                    width: 188px;
+                                    height: 184px;
+                                    cursor: pointer;
+                                    margin: 0 20px 24px 0;
+        
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: contain;
+                                    }
+                                }
+        
+                                // p {
+                                //     font-size: 14px;
+                                //     padding-top: 8px;
+                                //     text-align: center;
+                                //     font-weight: bold;
+                                //     color: $mainFont_1;
+                                // }
+        
+                                // .fixBox {
+                                //     display: none;
+                                //     position: absolute;
+                                //     width: 92%;
+                                //     height: 92%;
+                                //     border-radius: 5px;
+                                //     background: $filter;
+                                //     align-items: center;
+                                //     justify-content: center;
+                                //     flex-direction: column;
+                                //     top: 50%;
+                                //     left: 50%;
+                                //     transform: translate(-50%,-50%);
+                                //     cursor: not-allowed;
+        
+                                //     &.display {
+                                //         display: flex;
+                                //     }
+            
+                                //     p {
+                                //         color: $subFont_2;
+                                //         font-size: 14px;
+                                //         font-weight: bold;
+        
+                                //         &.title {
+                                //             margin-bottom: 30px;
+                                //         }
+                                //     }
+                                // }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
